@@ -1,18 +1,63 @@
 const express = require("express");
 const { json } = require("body-parser");
-
-
+const keys = require('../config')
+const cors = require('cors');
+const request = require('request');
 const port = 3001;
+let token =""
+
+
+// The block of code below allows me to acquire a token to access the Spotify API and stores it in the variable "token" in order to make calls below.
+var authOptions = {
+  url: 'https://accounts.spotify.com/api/token',
+  headers: {
+    'Authorization': 'Basic ' + (new Buffer(keys.clientId + ':' + keys.clientSecret).toString('base64'))
+  },
+  form: {
+    grant_type: 'client_credentials'
+  },
+  json: true
+};
+
+
+request.post(authOptions, function(error, response, body) {
+  if (!error && response.statusCode === 200) {
+    // use the access token to access the Spotify Web API
+    token = body.access_token;
+  }
+});
+
+
 
 const app = express();
 app.use(json());
-
-app.use(express.static(`${__dirname}/../public/build`))
-
+app.use(cors());
 
 
+
+app.get(`/api/genres`,(req,res)=>{
+  request.get({
+    url: `https://api.spotify.com/v1/recommendations/available-genre-seeds`,
+    headers: {"Authorization": "Bearer " + token},
+    json: true}, 
+    (error,response,body) => {
+      res.json(body)
+    })
+})
+
+app.get(`/api/test/:genre/:popularity`, (req, res) =>{
+  request.get({
+    url: `https://api.spotify.com/v1/recommendations?seed_genres=post-dubstep&target_popularity=90`,
+    headers: {"Authorization": "Bearer " + token},
+    json: true}, 
+    (error,response,body) => {
+      res.json(body)
+    })
+})
 
 
 app.listen(port, () =>
   console.log(`I'm up and running dawg, peep port: ${port}`)
 );
+
+

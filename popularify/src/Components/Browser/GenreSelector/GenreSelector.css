@@ -1,0 +1,12 @@
+.genre-container {
+    height: 42.5vh;
+    width: 100%;
+}
+
+
+
+.genre-menu {
+    width: 200px;
+    height: 100px;
+    overflow-y: scroll;
+}
