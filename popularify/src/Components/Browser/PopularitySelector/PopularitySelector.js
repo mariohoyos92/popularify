@@ -22,6 +22,7 @@ class PopularitySelector extends Component {
                     popularityGrabber(e.target.value)
                     this.setState({value: e.target.value}
                     )}}/>
+                    <div className="popularity-value">{this.state.value}</div>
             </div>    
         )
     }

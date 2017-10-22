@@ -32,7 +32,7 @@ class GenreSelector extends Component {
 
                         this.state.genres.map((genre) => {
                             return <div className="genre-button" key={this.state.genres.indexOf(genre)} onClick={() => genreGrabber(genre)}>
-                            {genre}
+                            {genre.toUpperCase()}
                             </div>})
                         :
                         null
