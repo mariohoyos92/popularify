@@ -1,27 +1,42 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 
 
 class GenreSelector extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            genres: null,
+        }
+    }
+
+
+    componentWillMount(){
+        
+            axios.get('http://localhost:3001/api/genres').then( (response) => 
+            {this.setState({genres: response.data.genres});})
+    }
+          
 
     render(){
-       let {genres, genreGrabber} = this.props;
-       console.log(genres);
-
-       let genreList = genres.map((genre) => {
-
-         return <div className="genre-button" key={genres.indexOf(genre)} onClick={() => genreGrabber(genre)}>
-                {genre}
-                </div>
-       })
+       let {genreGrabber} = this.props;
        
-
         return (
 
              <div className="genre-container">
                     <h3>Select a Genre from Below</h3>
                     <div className="genre-menu">
-                        {genreList}
+
+                        {this.state.genres ? 
+
+                        this.state.genres.map((genre) => {
+                            return <div className="genre-button" key={this.state.genres.indexOf(genre)} onClick={() => genreGrabber(genre)}>
+                            {genre}
+                            </div>})
+                        :
+                        null
+                        }
                     </div>    
             </div> 
             

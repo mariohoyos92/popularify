@@ -12,15 +12,13 @@ class Artist extends Component {
     }
 
     componentWillReceiveProps(nextProps){
+        console.log(nextProps)
         axios.get(`http://localhost:3001/api/test/${nextProps.selectedGenre}/${nextProps.selectedPopularity}`).then( (response) => {
-            this.setState({recommendations: response.data.tracks}); console.log(this.state.recommendations)});
+           return this.setState({recommendations: response.data.tracks.sort( (a,b) => b.popularity - a.popularity)}, () => console.log(this.state.recommendations))});
     }
 
 
     render(){
-
-
-
         return(
             <div>
                 <div className="artist">

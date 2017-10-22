@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios'
-import Header from './Components/Header'
+import Header from './Components/Header';
 import GenreSelector from './Components/Browser/GenreSelector/GenreSelector';
 import PopularitySelector from './Components/Browser/PopularitySelector/PopularitySelector';
 import Artist from './Components/Display/Artist';
@@ -12,10 +11,8 @@ class App extends Component {
     super(props)
     
     this.state = {
-      genres: undefined,
-      selectedGenre: null,
-      selectedPopularity: null,
-       
+      selectedGenre: "",
+      selectedPopularity: "",  
     }
 
     this.genreGrabber = this.genreGrabber.bind(this);
@@ -24,22 +21,14 @@ class App extends Component {
 
 
   genreGrabber(genre){
-    this.setState({selectedGenre: genre});
-    console.log(this.state.selectedGenre);
+    this.setState({selectedGenre: genre}, () =>console.log(this.state.selectedGenre));
   }
 
   popularityGrabber(popularity){
-    this.setState({selectedPopularity: popularity});
-    console.log(this.state.selectedPopularity);
+    this.setState({selectedPopularity: popularity}, ()=> console.log(this.state.selectedPopularity));
   }
 
-  componentDidMount(){
-
-    axios.get('http://localhost:3001/api/genres').then( (response) => 
-    {this.setState({genres: response.data.genres});
-    
-    })
-  }
+  
 
   render() {
     return (
@@ -47,12 +36,7 @@ class App extends Component {
        <Header />
        <div className="main-container">
           <div className="browser">
-            {
-            this.state.genres ?
             <GenreSelector genres={this.state.genres} genreGrabber={this.genreGrabber}/>  
-            : 
-            null
-            }
             <PopularitySelector popularityGrabber={this.popularityGrabber}/>
           </div>
           <div className="display">

@@ -47,7 +47,7 @@ app.get(`/api/genres`,(req,res)=>{
 
 app.get(`/api/test/:genre/:popularity`, (req, res) =>{
   request.get({
-    url: `https://api.spotify.com/v1/recommendations?seed_genres=post-dubstep&target_popularity=90`,
+    url: `https://api.spotify.com/v1/recommendations?seed_genres=${req.params.genre}&target_popularity=${req.params.popularity}`,
     headers: {"Authorization": "Bearer " + token},
     json: true}, 
     (error,response,body) => {
