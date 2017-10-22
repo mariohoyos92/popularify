@@ -1,12 +1,25 @@
 .genre-container {
     height: 42.5vh;
     width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
 
 .genre-menu {
+    color: #9C928B;
+    background: #2A2C2B;
     width: 200px;
     height: 100px;
     overflow-y: scroll;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h3 {
+    font-family: Helvetica, Arial, sans-serif;
+    color: white;
 }

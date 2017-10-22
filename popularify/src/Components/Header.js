@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Header.css';
+import logo from '../logo.png'
 
 
 class Header extends Component {
@@ -11,7 +12,11 @@ class Header extends Component {
 
         return(
         <div className="header">
-            <h1>Popularify</h1>
+            <div className="top">
+                 <img className="logo" src={logo} alt="spotify" />
+                 <h1>Popularify</h1>
+            </div>
+            <div className="bottom"></div>
         </div>   
         ) 
     }

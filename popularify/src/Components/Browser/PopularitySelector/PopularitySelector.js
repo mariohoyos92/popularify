@@ -16,9 +16,9 @@ class PopularitySelector extends Component {
         let {popularityGrabber} = this.props;
                
         return(
-            <div>
+            <div className="slider-container">
                 <h3> Select The Popularity You Want Below </h3>
-                <input type="range" min="1" max="100" value={this.state.value} step="1" onChange={(e)=> {
+                <input className="slider" type="range" min="1" max="100" value={this.state.value} step="1" onChange={(e)=> {
                     popularityGrabber(e.target.value)
                     this.setState({value: e.target.value}
                     )}}/>

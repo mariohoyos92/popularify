@@ -6,8 +6,13 @@
 }
 
 .browser {
+  color: #9C928B;
+  background: #2A2C2B;
   width: 30%;
   height: 85vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .display {
@@ -15,3 +20,46 @@
   height: 85vh;
 }
 
+.genre-container {
+  height: 42.5vh;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.genre-menu {
+  color: #9C928B;
+  background: #2A2C2B;
+  width: 100%;
+  height: 38vh;
+  overflow-y: scroll;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h3 {
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding: 5px 0px;
+}
+
+.genre-button {
+  text-align: center;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider {
+  margin-top: 50px;
+}
