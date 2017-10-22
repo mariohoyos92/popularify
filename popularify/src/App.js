@@ -13,17 +13,28 @@ class App extends Component {
     
     this.state = {
       genres: undefined,
-      recommendations: [],
       selectedGenre: null,
       selectedPopularity: null,
        
     }
+
+    this.genreGrabber = this.genreGrabber.bind(this);
+    this.popularityGrabber = this.popularityGrabber.bind(this);
   }
 
 
+  genreGrabber(genre){
+    this.setState({selectedGenre: genre});
+    console.log(this.state.selectedGenre);
+  }
+
+  popularityGrabber(popularity){
+    this.setState({selectedPopularity: popularity});
+    console.log(this.state.selectedPopularity);
+  }
+
   componentDidMount(){
-    axios.get("http://localhost:3001/api/test/country/100").then( (response) => {
-      this.setState({recommendations: response}); console.log(response)});
+
     axios.get('http://localhost:3001/api/genres').then( (response) => 
     {this.setState({genres: response.data.genres});
     
@@ -38,13 +49,19 @@ class App extends Component {
           <div className="browser">
             {
             this.state.genres ?
-            <GenreSelector genres={this.state.genres}/>  
-            : null
+            <GenreSelector genres={this.state.genres} genreGrabber={this.genreGrabber}/>  
+            : 
+            null
             }
-            <PopularitySelector />
+            <PopularitySelector popularityGrabber={this.popularityGrabber}/>
           </div>
           <div className="display">
-                <Artist />
+
+            {this.state.selectedGenre && this.state.selectedPopularity ?  
+              <Artist selectedGenre={this.state.selectedGenre} selectedPopularity={this.state.selectedPopularity}/>
+              :
+              null
+            }
           </div>  
         </div>  
       </div>
