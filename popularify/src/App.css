@@ -6,6 +6,7 @@
   font-family: Helvetica, Arial, sans-serif;
 }
 
+
 .browser {
   color: #9C928B;
   background: #2A2C2B;
@@ -17,12 +18,35 @@
 }
 
 .display {
-  background: #2A2C2B;
+  background: rgb(27, 29, 28);
   width: 70%;
   height: 85vh;
   overflow-y: scroll;
 }
 
+.welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 120px;
+}
+
+.greeting {
+  color:#9C928B;
+  font-size: 100px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  
+}
+
+.home-message {
+  color:rgb(187, 183, 180);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 40px;
+  text-align: center;
+  opacity: 0.6;
+}
 .genre-container {
   height: 42.5vh;
   width: 100%;
@@ -31,7 +55,25 @@
   justify-content: center;
 }
 
+::-webkit-scrollbar {
+  width: 15px;
+}
 
+::-webkit-scrollbar-track {
+  background-color: #009E54;
+} 
+
+::-webkit-scrollbar-thumb {
+  background-color: #9C928B; 
+}
+
+::-webkit-scrollbar-button {
+  background-color: #070707;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: black;
+} 
 
 .genre-menu {
   color: #9C928B;
@@ -53,6 +95,7 @@ h3 {
 }
 
 .genre-button {
+  background-color: rgb(26, 27, 27);
   text-align: center;
   font-family: Helvetica, Arial, sans-serif;
 
@@ -73,11 +116,6 @@ h3 {
 
 
 
-
-
-
-
-
 .slider {
   margin-top: 95px;
   cursor: pointer; 
@@ -86,7 +124,8 @@ h3 {
 .popularity-value {
   font-family: Helvetica, Arial, sans-serif;
   color: white;
-  font-size: 20px;
+  font-size: 80px;
+  font-weight: bold;
 }
 
 

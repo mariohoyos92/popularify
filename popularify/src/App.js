@@ -33,7 +33,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       <Header />
+       <Header  selectedGenre={this.state.selectedGenre} selectedPopularity={this.state.selectedPopularity}/>
        <div className="main-container">
           <div className="browser">
             <GenreSelector genres={this.state.genres} genreGrabber={this.genreGrabber}/>  
@@ -44,7 +44,14 @@ class App extends Component {
             {this.state.selectedGenre && this.state.selectedPopularity ?  
               <Artist selectedGenre={this.state.selectedGenre} selectedPopularity={this.state.selectedPopularity}/>
               :
-              null
+              <div className="welcome">
+                <div className="greeting">
+                  Welcome.
+                 </div>
+                 <div className="home-message">
+                   Looking for new music? Select one of the countless genres on the left and look for the most popular, or most obscure, song recommendations Spotify has to offer using the slider.
+                </div>  
+              </div>  
             }
           </div>  
         </div>  

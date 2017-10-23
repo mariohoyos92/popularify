@@ -15,8 +15,12 @@ class Header extends Component {
             <div className="top">
                  <img className="logo" src={logo} alt="spotify" />
                  <h1>Popularify</h1>
+                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><div className="easter"></div></a>
             </div>
-            <div className="bottom"></div>
+            <div className="bottom">
+                <div>Selected Genre: {this.props.selectedGenre.toUpperCase()}</div>
+                <div>Selected Popularity: {this.props.selectedPopularity}</div>
+            </div>
         </div>   
         ) 
     }

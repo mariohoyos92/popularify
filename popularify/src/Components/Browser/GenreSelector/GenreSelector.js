@@ -25,7 +25,7 @@ class GenreSelector extends Component {
         return (
 
              <div className="genre-container">
-                    <h3>Select a Genre from Below</h3>
+                    <h3>Select a Genre From Below</h3>
                     <div className="genre-menu">
 
                         {this.state.genres ? 
