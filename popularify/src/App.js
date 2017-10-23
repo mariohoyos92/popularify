@@ -5,6 +5,7 @@ import GenreSelector from './Components/Browser/GenreSelector/GenreSelector';
 import PopularitySelector from './Components/Browser/PopularitySelector/PopularitySelector';
 import Artist from './Components/Display/Artist';
 
+
 class App extends Component {
 
   constructor(props){
@@ -42,7 +43,9 @@ class App extends Component {
           <div className="display">
 
             {this.state.selectedGenre && this.state.selectedPopularity ?  
+              
               <Artist selectedGenre={this.state.selectedGenre} selectedPopularity={this.state.selectedPopularity}/>
+              
               :
               <div className="welcome">
                 <div className="greeting">

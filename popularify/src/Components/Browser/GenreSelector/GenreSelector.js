@@ -13,9 +13,8 @@ class GenreSelector extends Component {
 
 
     componentWillMount(){
-        
-            axios.get('http://localhost:3001/api/genres').then( (response) => 
-            {this.setState({genres: response.data.genres});})
+        axios.get('http://localhost:3001/api/genres').then( (response) => 
+        {this.setState({genres: response.data.genres})})
     }
           
 
@@ -23,7 +22,6 @@ class GenreSelector extends Component {
        let {genreGrabber} = this.props;
        
         return (
-
              <div className="genre-container">
                     <h3>Select a Genre From Below</h3>
                     <div className="genre-menu">

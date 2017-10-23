@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Artist.css';
 import axios from 'axios';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 
 
@@ -32,15 +33,22 @@ class Artist extends Component {
     render(){           
         return(
             <div>
-            
+            <ReactCSSTransitionGroup
+                        transitionName="example"
+                        transitionAppear={true}
+      transitionAppearTimeout={1000}
+                        transitionEnterTimeout={500}
+                        transitionLeaveTimeout={300}>
                 {
 
-                 this.state.recommendations ?
+                 this.state.recommendations ? 
+                 
+
                  this.state.recommendations.map((recommendation) => {
         
                  return <div className="artist" key={this.state.recommendations.indexOf(recommendation)}>
                             <div className="picture">
-                             <img className="artist-image" src={recommendation.album.images[0].url ? recommendation.album.images[0].url : "#"} />
+                             <img className="artist-image" src={recommendation.album.images[0].url ? recommendation.album.images[0].url : "#"} alt="album" />
                             </div>
                             <div className="artist-info">
                                 <div className="song-name"><span className="info">TRACK: </span>{recommendation.name}</div>
@@ -49,11 +57,13 @@ class Artist extends Component {
                                 <div className="url"><a href={recommendation.external_urls.spotify} target="_blank">Listen Here</a></div>
                             </div>        
                         </div>})
+                        
+                 
                         :
                         ""
                  
                 }
-                
+                </ReactCSSTransitionGroup>
             </div>     
         )   
     }
