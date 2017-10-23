@@ -17,7 +17,6 @@ class GenreSelector extends Component {
         {this.setState({genres: response.data.genres})})
     }
           
-
     render(){
        let {genreGrabber} = this.props;
        

@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './Artist.css';
 import axios from 'axios';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import {Carousel} from 'react-materialize';
 
 
 
@@ -9,7 +10,7 @@ class Artist extends Component {
     constructor(props){
         super(props);
         this.state = {
-            recommendations: null
+            recommendations: null,      
         }
     }
 
