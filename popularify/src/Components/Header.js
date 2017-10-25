@@ -15,7 +15,7 @@ class Header extends Component {
             <div className="top">
                  <img className="logo" src={logo} alt="spotify" />
                  <h1>Popularify</h1>
-                 <a href="https://www.youtube.com/channel/UCwgwKuTaaMLlYT9CN92sXKw" target="_blank"><div className="easter"></div></a>
+                 <a href="https://www.youtube.com/channel/UCwgwKuTaaMLlYT9CN92sXKw" rel="noopener noreferrer" target="_blank"><div className="easter"></div></a>
             </div>
             <div className="bottom">
                 <div>Selected Genre: {this.props.selectedGenre.toUpperCase()}</div>

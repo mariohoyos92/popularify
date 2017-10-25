@@ -22,11 +22,11 @@ class App extends Component {
 
 
   genreGrabber(genre){
-    this.setState({selectedGenre: genre}, () =>console.log(this.state.selectedGenre));
+    this.setState({selectedGenre: genre});
   }
 
   popularityGrabber(popularity){
-    this.setState({selectedPopularity: popularity}, ()=> console.log(this.state.selectedPopularity));
+    this.setState({selectedPopularity: popularity});
   }
 
   render() {
@@ -50,7 +50,7 @@ class App extends Component {
                   Welcome.
                  </div>
                  <div className="home-message">
-                   Looking for new music? Select one of the countless genres on the left and look for the most popular, or most obscure, song recommendations Spotify has to offer using the slider.
+                   Looking for new music? Select one of the countless genres on the left and look for the most popular, or most obscure, song recommendations Spotify has to offer using the slider. 
                 </div>  
               </div>  
             }
