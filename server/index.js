@@ -30,8 +30,10 @@ request.post(authOptions, function(error, response, body) {
 
 
 const app = express();
+app.use(express.static(`${__dirname}/../../popularify/build`))
 app.use(json());
 app.use(cors());
+
 
 
 

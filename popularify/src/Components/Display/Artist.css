@@ -7,11 +7,14 @@
     border-style: solid;
     border-width: 1px;
     color: white;
+    font-size: 20px;
 }
-
+.picture {
+    width: 17%;
+}
 .artist-image {
-    height: 111px;
-    width: 111px;
+    height: 100%;  
+    width: 100%;  
 }
 
 .artist-info {

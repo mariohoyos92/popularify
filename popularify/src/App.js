@@ -29,8 +29,6 @@ class App extends Component {
     this.setState({selectedPopularity: popularity}, ()=> console.log(this.state.selectedPopularity));
   }
 
-  
-
   render() {
     return (
       <div className="App">
