@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Artist.css";
 import axios from "axios";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import CSSTransitionGroup from "react-addons-css-transition-group";
 import Recommendation from "./Recommendation";
 
 class Artist extends Component {
@@ -45,26 +45,26 @@ class Artist extends Component {
   }
 
   render() {
+    const rec =  this.state.recommendations
+      ? this.state.recommendations.map((recommendation, i) => {
+      return (
+        <Recommendation
+          recommendation={recommendation}
+          key={recommendation.name}
+        />
+      );
+    }) : "";
+
     return (
       <div>
-        <ReactCSSTransitionGroup
+        <CSSTransitionGroup
           transitionName="example"
-          transitionAppear={true}
-          transitionAppearTimeout={1000}
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}
+          transitionEnterTimeout={2500}
+          transitionLeaveTimeout={2500}
         >
-          {this.state.recommendations
-            ? this.state.recommendations.map(recommendation => {
-                return (
-                  <Recommendation
-                    recommendation={recommendation}
-                    key={this.state.recommendations.indexOf(recommendation)}
-                  />
-                );
-              })
-            : ""}
-        </ReactCSSTransitionGroup>
+           {rec}
+           
+        </CSSTransitionGroup>
       </div>
     );
   }

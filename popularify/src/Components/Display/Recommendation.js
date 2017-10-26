@@ -5,7 +5,8 @@ export default function Recommendation({ recommendation, key }) {
  return (
     <div className="artist" key={key}>
       <div className="picture">
-        <img
+        {recommendation.album.images[0].url
+              ? <img
           className="artist-image"
           src={
             recommendation.album.images[0].url
@@ -14,6 +15,7 @@ export default function Recommendation({ recommendation, key }) {
           }
           alt="album"
         />
+              : ""}
       </div>
       <div className="artist-info">
         <div className="song-name">
