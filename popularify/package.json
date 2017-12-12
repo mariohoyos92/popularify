@@ -12,6 +12,7 @@
     "react-scripts": "1.0.14",
     "react-transition-group": "^2.2.1"
   },
+  "proxy": "http://localhost:3001",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
